@@ -245,3 +245,82 @@ plt.show()
 
 #Assignment 6
 
+#Q.1)
+import networkx as nx
+import matplotlib.pyplot as plt
+G1=nx.Graph()
+G1.add_edges_from([(1,2),(1,3),(2,4),(3,4),(4,5)])
+G2=nx.Graph()
+G2.add_edges_from([(6,7),(6,8),(7,9),(8,9),(9,10)])
+G_union=nx.union(G1,G2)
+plt.figure(figsize=[8,6])
+pos_union=nx.spring_layout(G_union)
+nx.draw(G_union,pos_union,with_labels=True,node_color='lightblue',edge_color='blue')
+plt.title("Union Graph G1 and G2: ")
+plt.show()
+
+#Q.2)
+import networkx as nx
+import matplotlib.pyplot as plt
+G5=nx.Graph()
+G5.add_edges_from([(1,2),(1,3),(2,4),(3,4),(4,5)])
+G6=nx.Graph()
+G6.add_edges_from([(6,7),(6,8),(7,9),(8,9),(9,10)])
+G_intersection=nx.intersection(G5,G6)
+plt.figure(figsize=(8,6))
+pos_intersection=nx.spring_layout(G_intersection)
+nx.draw(G_intersection, pos_intersection, with_labels=True, node_color='light blue',edge_color='blue')
+plt.title("intersection of Graphs G1 and G2:")
+plt.show()
+
+#Q.5)
+import networkx as nx
+import matplotlib.pyplot as plt
+G7=nx.Graph()
+G7.add_edges_from ([(1,2),(1,3),(2,4),(3,4),(4,5)])
+G8=nx.Graph()
+G8.add_edges_from([(6,7),(6,8),(7,9),(8,9),(9,10)])
+G_product=nx.cartesian_product(G1,G2)
+plt.figure(figsize=(10,8))
+pos_product=nx.spring_layout(G_product)
+nx.draw(G_product, pos_product,with_labels=True, node_color='lightblue',edge_color='blue')
+plt.title("Cartesian Product of Graphs G1 and G2: ")
+plt.show()
+
+Assignment 7
+
+#Q.1)
+import networkx as nx
+import matplotlib.pyplot as plt
+G = nx.Graph()
+G.add_nodes_from([1,2,3,4,5])
+G.add_edges_from([(1,2),(1,3),(2,4),(3,4),(4,5)])
+plt.figure(figsize = (8,6))
+pos = nx.spring_layout(G)
+nx.draw(G, pos, with_labels = True, node_color = 'lightblue', edge_color = 'black')
+plt.title("Graphs G : ")
+plt.show()
+
+#Q.2)
+G1 = nx.Graph()
+G1.add_nodes_from([1,2,3,4,5,6,7,8])
+G1.add_edges_from([(1,2),(1,3),(1,4),(2,4),(2,5),(3,4),(3,6),(4,5),(4,6),(4,7),(5,8),(6,8),(7,8)])
+plt.figure(figsize = (10,8))
+pos = nx.spring_layout(G1)
+nx.draw(G1, pos, with_labels = True, node_color = 'lightblue', edge_color = 'black')
+plt.title("Graphs G with additional vertices and edges : ")
+plt.show()
+
+#Q.4)
+G3 = nx.Graph()
+G3.add_nodes_from([1,2,3,4,5,6,7,8])
+G3.add_edges_from([(1,2),(1,3),(1,4),(2,4),(2,5),(3,4),(3,6),(4,5),(4,6),(4,7),(5,8),(6,8),(7,8)])
+G3.remove_edges_from([(1,3),(4,6),(5,8)])
+G3.remove_nodes_from([7,8])
+is_connected = nx.is_connected(G)
+print(f"The graph G is connected : {is_connected}")
+plt.figure(figsize = (10,8))
+pos = nx.spring_layout(G3)
+nx.draw(G3, pos, with_labels = True, node_color = 'lightblue', edge_color = 'black')
+plt.title(" Graphs G : ")
+plt.show()
